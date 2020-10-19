@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" name="nome">
+    <!-- <input type="text" name="nome" id="nome-2"> -->
+    <button class="btn">Touch to Start</button>
+  </div>
+
+  <script>
+    // var inputElement = document.getElementById('nome');
+    // var inputElement = document.getElementsByTagName('input')[0]; //SEMPRE retorna um vetor
+    // var inputElement = document.getElementsByClassName('nome')[0];
+
+    var inputElement = document.querySelector('div#app input');
+    // var inputElement = document.querySelector('input[name=nome]');
+
+    var btnElement = document.querySelector('button.btn');
+    btnElement.onclick = function () {
+      var text = inputElement.value;
+
+      alert(text);
+    }
+    
+    var linkElement = document.createElement('a');
+
+    // linkElement.setAttribute('href', 'https://rocketseat.com.br/');
+    linkElement.href = 'https://rocketseat.com.br/';
+    linkElement.target = '_blank'
+
+    linkElement.style.textDecoration = 'none';
+    linkElement.style.color = 'gray';
+
+    var textElement = document.createTextNode('Rockeseat');
+    linkElement.appendChild(textElement);
+
+    var containerElement = document.querySelector('#app');
+    containerElement.appendChild(linkElement); //adicionar um elemento filho
+
+    containerElement.removeChild(inputElement); //remover um elemento filo
+
+    console.log(linkElement);
+  </script>
+</body>
+</html>
