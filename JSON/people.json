@@ -1,0 +1,20 @@
+{
+  "otherPeople": [
+    {
+      "name":"Alana",
+      "age":35
+    },
+    {
+      "name":"Ártemis",
+      "age":40
+    },
+    {
+      "name":"Derielli",
+      "age":25
+    },
+    {
+      "name":"Angel",
+      "age":26
+    }
+  ]
+}
