@@ -13,6 +13,11 @@ const account = {
   addExpense: (description, amount) => {
     // account.expenses.push({description, amount});
     account.expenses = [...account.expenses, {description, amount}];
+  },
+  getAccountSummary: function () {
+    let totalExpenses = 0
+
+    return `${this.name} has ${totalExpenses} in expenses.`
   }
 };
 
@@ -23,24 +28,11 @@ const account = {
 account.addExpense('Rent', 950);
 account.addExpense('Coffee', 2);
 console.log(account.expenses);
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(account.getAccountSummary());
 
 // getAccountSummary: function () {
 //   const totalExpenses = function () {
 //     const expenses = account.expenses;
-    
 //     const expensesSum = expenses.forEach((expense, index) => {
 //       console.log(expense.expense);
 //     });
