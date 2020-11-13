@@ -20,23 +20,13 @@ const account = {
   },
   
   getAccountSummary: () => {
-    let totalIncome = 0,
-        totalExpenses = 0;
-    const accountIncome = account.income,
-          accountExpenses = account.expenses;
-
-    // function accountSummary (accountProp) {
-    //   let total = 0;
-    //   accountProp.forEach((item) => {
-    //     total += item.amount;
-    //   });
-    //   return total;
-    // };
-
-    const accountSummary = arr => arr.reduce((stack, next) => stack + next.amount, 0);
+    let totalIncome = 0;
+    let totalExpenses = 0;
+    const accountIncome = account.income;
+    const accountExpenses = account.expenses;
 
     function accountSummary (accountProp) {
-      return accountProp.reduce((stack, b) => (stack + b.amount), 0);
+      return accountProp.reduce((stack, currentItem) => (stack + currentItem.amount), 0);
     };
 
     totalIncome = accountSummary(accountIncome);

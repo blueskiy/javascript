@@ -31,29 +31,41 @@ const account = {
   },
   
   getAccountSummary: function () {
-    let totalExpenses = 0
+    let totalIncome = 0,
+        totalExpenses = 0;
+    const accountIncome = account.income,
+          accountExpenses = account.expenses;
 
-    return `${this.name} has ${totalExpenses} in expenses.`
+    const accountSummary = arr => arr.reduce((stack, next) => stack + next.amount, 0);
+
+    // KKKKKKKK MUDA AQUI
+    // const accountSummary = arr => arr.reduce((stack, next) => stack + next.amount, 0);
+
+    function accountSummary (accountProp) {
+      return accountProp.reduce((stack, b) => (stack + b.amount), 0);
+    };
+
+    totalIncome = accountSummary(accountIncome);
+    totalExpenses = accountSummary(accountExpenses);
+
+    const balance = totalIncome - totalExpenses;
+
+    return `${account.name} has a balance of $${balance}. $${totalIncome} in income. $${totalExpenses} in expenses.`
+
+    //============outra forma de fazer=================*
+    // function accountSummary (accountProp) {
+    //   let total = 0;
+    //   accountProp.forEach((item) => {
+    //     total += item.amount;
+    //   });
+    //   return total;
+    // };
   }
 };
 
-//expense -> description, amount
-//addExpense -> description, amount
-//getAccountSummary -> total up all expenses -> Filipe André has $1250 in expenses.
-
 account.addExpense('Rent', 950);
 account.addExpense('Coffee', 2);
+account.addIncome('Job', 2485);
+console.log(account.income);
 console.log(account.expenses);
 console.log(account.getAccountSummary());
-
-// getAccountSummary: function () {
-//   const totalExpenses = function () {
-//     const expenses = account.expenses;
-//     const expensesSum = expenses.forEach((expense, index) => {
-//       console.log(expense.expense);
-//     });
-
-//     return expensesSum;
-//   };
-//   return `${account.name} has ${totalExpenses()} in expenses.`;
-// }
