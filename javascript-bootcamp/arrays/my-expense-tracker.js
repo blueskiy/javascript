@@ -22,16 +22,19 @@ const account = {
     const accountIncome = account.income;
     const accountExpenses = account.expenses;
 
-    function accountSummary (accountProp, total) {
+    function accountSummary (accountProp) {
+      let total = 0;
       accountProp.forEach((item) => {
         total += item.amount;
       });
+      return total;
     };
 
-    accountSummary(accountIncome, totalIncome);
-    accountSummary(accountExpenses, totalExpenses);
+    totalIncome = accountSummary(accountIncome);
+    totalExpenses = accountSummary(accountExpenses);
 
     let balance = totalIncome - totalExpenses;
+
     return `${account.name} has a balance of $${balance}. $${totalIncome} in income. $${totalExpenses} in expenses.`
 
     // account.expenses.forEach((expense) => {
