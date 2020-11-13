@@ -1,6 +1,20 @@
+//expense -> description, amount
+//addExpense -> description, amount
+//getAccountSummary -> total up all expenses -> Filipe André has $1250 in expenses.
+
+//add income array to acount
+//addIncome method -> description, amount
+//tweak getAccountSummary
+
 const account = {
   name: 'Filipe André',
+  income: [],
   expenses: [],
+
+  addIncome: (description, amount) => {
+    account.income = [...account.income, {description, amount}];
+  },
+
   //==============outro modo de se fazer addExpense=================*
   // addExpense: function (description, amount) {
   //   const newExpense = {
@@ -10,10 +24,12 @@ const account = {
   
   //   return account.expenses.push(newExpense)
   // }
+
   addExpense: (description, amount) => {
     // account.expenses.push({description, amount});
     account.expenses = [...account.expenses, {description, amount}];
   },
+  
   getAccountSummary: function () {
     let totalExpenses = 0
 
