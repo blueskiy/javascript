@@ -21,10 +21,22 @@ const todos = [
   },
 ];
 
-//botão que cria troços
 document.querySelector('button').addEventListener('click', function(e) {
   console.log('Novo troço criado');
 });
+
+//you have n todos left (p element)
+// function todosLeft () {
+//   let incompleteTodos = 0;
+
+//   todos.forEach(function(todo) {
+//     todo.completed ? 'good job' : incompleteTodos++;
+//   });
+
+//   const summary = document.createElement('h3');
+//   summary.textContent = `Você tem ${incompleteTodos} coisas pra fazer, amigão`;
+//   document.querySelector('body').appendChild(summary);
+// };
 
 function todosLeft () {
   const incompleteTodos = todos.filter(function(todo) {

@@ -16,4 +16,5 @@ ps.forEach(function(p) {
 
 //add a new element
 const newNote = document.createElement('p');
-newNote.textContent = 'Thi'
+newNote.textContent = 'This is a new element from JavaScript';
+document.querySelector('body').appendChild(newNote);

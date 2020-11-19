@@ -13,13 +13,6 @@ const notes = [
   },
 ];
 
-const ps = document.querySelectorAll('p');
-
-ps.forEach(function(p) {
-  p.textContent = 'otário kkkk'
+document.querySelector('button').addEventListener('click', function(e) {
+  e.target.textContent = 'The button was clicked'
 });
-
-//add a new element
-const newNote = document.createElement('p');
-newNote.textContent = 'This is a new element from JavaScript';
-document.querySelector('body').appendChild(newNote);
