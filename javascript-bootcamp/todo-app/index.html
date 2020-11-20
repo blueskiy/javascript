@@ -11,11 +11,18 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="main">
     <h1>Coisas p/ Fazer</h1>
-
-    <button>Criar Troço</button>
+    <!-- <input type="text" placeholder="Vai fazer o que?" id="">
+    <button id="create-todo">Criar Troço</button> -->
+    <input type="text" placeholder="Esquece não" id="search-todo">
   </div>
+
+  <div id="todos"></div>
+  <form id="new-todo">
+    <input name="newTodo" placeholder="Novo troço" type="text">
+    <button>Submit</button>
+  </form>
 </body>
 <script src="app.js"></script>
 </html>

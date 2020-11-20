@@ -25,6 +25,11 @@ document.querySelector('button').addEventListener('click', function(e) {
   console.log('Novo troço criado');
 });
 
+//listen for new todo creation
+document.querySelector('button').addEventListener('click', function(e) {
+  console.log('Novo troço criado');
+});
+
 //you have n todos left (p element)
 // function todosLeft () {
 //   let incompleteTodos = 0;
