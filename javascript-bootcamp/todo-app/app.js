@@ -22,7 +22,8 @@ const todos = [
 ];
 
 const filters = {
-  searchText: ''
+  searchText: '',
+  hideCompleted: false
 }
 
 const renderTodos = function (todos, filters) {
@@ -71,4 +72,10 @@ document.querySelector('#new-todo').addEventListener('submit', function(e) {
   renderTodos(todos, filters);
   //pq não funciona com let?
   e.target.elements.newTodo.value = '';
+});
+
+document.querySelector('#hide-completed').addEventListener('change', function(e) {
+  const hideCompleteTodos = todos.filter(function(todo) {
+   return !todo.completed
+  });
 });
