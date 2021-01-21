@@ -1,0 +1,2 @@
+console.log(event.type);
+console.log(keyCode);
