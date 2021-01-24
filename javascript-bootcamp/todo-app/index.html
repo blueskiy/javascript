@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    *{
-      font-family: sans-serif;
-    }
-  </style>
-</head>
-<body>
-  <div class="main">
-    <h1>Coisas p/ Fazer</h1>
-    <!-- <input type="text" placeholder="Vai fazer o que?" id="">
-    <button id="create-todo">Criar Troço</button> -->
-    <input type="text" placeholder="Esquece não" id="search-todo">
-    <label>
-      <input id="hide-completed" type="checkbox"> Hide Completed
-    </label>
-  </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+        font-family: sans-serif;
+      }
+      input:focus,
+      select:focus {
+          outline: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Coisas p/ Fazer</h1>
+      <!-- <input type="text" placeholder="Vai fazer o que?" id="">
+      <button id="create-todo">Criar Troço</button> -->
+      <input type="text" placeholder="Esquece não" id="search-todo">
+      <label>
+        <input id="hide-completed" type="checkbox"> Hide Completed
+      </label>
+    </div>
 
-  <div id="todos"></div>
-  <form id="new-todo">
-    <input name="newTodo" placeholder="Novo troço" type="text">
-    <button>Submit</button>
-  </form>
-</body>
-<script src="app.js"></script>
+    <div id="todos"></div>
+    <form id="new-todo">
+      <input name="newTodo" placeholder="Novo troço" type="text">
+      <button>Submit</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="todo-functions.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

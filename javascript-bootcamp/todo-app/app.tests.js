@@ -21,15 +21,6 @@ const todos = [
   },
 ];
 
-document.querySelector('button').addEventListener('click', function(e) {
-  console.log('Novo troço criado');
-});
-
-//listen for new todo creation
-document.querySelector('button').addEventListener('click', function(e) {
-  console.log('Novo troço criado');
-});
-
 //you have n todos left (p element)
 // function todosLeft () {
 //   let incompleteTodos = 0;
@@ -60,4 +51,19 @@ todos.forEach(function(todo) {
   const renderTodo = document.createElement('p');
   renderTodo.textContent = todo.title;
   document.querySelector('body').appendChild(renderTodo);
+});
+
+document.querySelector('#hide-completed').addEventListener('change', function(e) {
+
+  if(!e.target.checked) {
+    renderTodos(todos, filters)
+    
+    return
+  }
+
+  const hideCompleteTodos = todos.filter(function(todo) {
+   return !todo.completed
+  })
+
+  renderTodos(hideCompleteTodos, filters)
 });

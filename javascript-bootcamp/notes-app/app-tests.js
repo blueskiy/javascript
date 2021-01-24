@@ -33,6 +33,13 @@ const filters = {
   searchText: ''
 }
 
+//CREATE, UPDATE
+localStorage.setItem('location', 'Rio de Janeiro')
+//READ
+console.log(localStorage.getItem('location'));
+//DELETE
+localStorage.removeItem('location')
+
 const renderNotes = function (notes, filters) {
   const filteredNotes = notes.filter(function (note) {
     return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
