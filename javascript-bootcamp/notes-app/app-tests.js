@@ -14,6 +14,10 @@
 // console.log(p.textContent);
 // });
 
+const filterBy = document.querySelector('#filter-by')
+const searchNote = document.querySelector('#search-note')
+const createNoteButton = document.querySelector('#create-note')
+
 const notes = [
   {
     title: 'My next trip',
@@ -57,8 +61,15 @@ const renderNotes = function (notes, filters) {
 renderNotes(notes, filters);
 
 //listen for new note creation
-document.querySelector('#create-note').addEventListener('click', function() {
-  console.log('Add new note');
+createNoteButton.addEventListener('click', function () {
+  notes.push({
+    id: uuidv4(),
+    title: '',
+    body: ''
+  })
+
+  saveNotes(notes)
+  location.assign(`/edit.html#${notes[notes.length - 1].id}`)
 });
 
 // const deleteNotes = function () {
@@ -68,21 +79,31 @@ document.querySelector('#create-note').addEventListener('click', function() {
 // };
 
 //listen for delete all notes
-document.querySelector('#remove-all').addEventListener('click', function() {
+document.querySelector('#remove-all').addEventListener('click', function () {
   document.querySelectorAll('.note').forEach((note) => {
     note.remove()
   });
 });
 
 //liste for note text change
-document.querySelector('#search-text').addEventListener('input', function(e) {
+document.querySelector('#search-text').addEventListener('input', function (e) {
   filters.searchText = e.target.value
   renderNotes(notes, filters);
 });
 
-document.querySelector('#name-form').addEventListener('submit', function(e) {
+document.querySelector('#name-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
   console.log(e.target.elements.firstName.value)
   e.target.elements.firstName.value = ''
 });
+
+const handlers = {
+  editNote: (id) => {
+    const noteIndex = notes.findIndex(function (note) {
+      return note.id === id
+    })
+
+    location.assign(`/edit.html#${notes[noteIndex].id}`)
+  }
+}

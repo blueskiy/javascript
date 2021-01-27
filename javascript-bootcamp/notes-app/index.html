@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-      *{
-        font-family: sans-serif;
-      }
+        * {
+            font-family: sans-serif;
+        }
 
-      input:focus,
-      select:focus {
-        outline: none;
-      }
+        input:focus,
+        select:focus {
+            outline: none;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Notes App</h1>
     <h2>Take notes and never forget</h2>
     <input id="search-note" type="text" placeholder="Cadê???">
 
     <select name="" id="filter-by">
-      <option value="byEdited">Last Edited</option>
-      <option value="byCreated">Recently Created</option>
-      <option value="alphabetical">Alphabetically</option>
+        <option value="byEdited">Last Edited</option>
+        <option value="byCreated">Recently Created</option>
+        <option value="alphabetical">Alphabetically</option>
     </select>
 
     <div id="notes"></div>
     <button id="create-note">Criar Nota</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
     <script src="notes-functions.js"></script>
     <script src="app.js"></script>
-  </body>
+</body>
+
 </html>
