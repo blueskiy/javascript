@@ -12,7 +12,7 @@ const filters = {
 renderNotes(notes, filters);
 
 //listen for new note creation
-createNoteButton.addEventListener('click', function () {
+createNoteButton.addEventListener('click', () => {
     const id = uuidv4()
     const timestamp = moment().valueOf()
 
@@ -29,7 +29,7 @@ createNoteButton.addEventListener('click', function () {
 });
 
 //listen for note text change
-searchNote.addEventListener('input', function (e) {
+searchNote.addEventListener('input', (e) => {
     filters.searchText = e.target.value
     renderNotes(notes, filters);
 });
@@ -39,7 +39,7 @@ filterBy.addEventListener('change', (event) => {
     renderNotes(notes, filters)
 })
 
-window.addEventListener('storage', function (e) {
+window.addEventListener('storage', (e) => {
     if (e.key === 'notes') {
         notes = JSON.parse(e.newValue)
         renderNotes(notes, filters)

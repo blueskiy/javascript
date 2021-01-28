@@ -13,12 +13,12 @@ const filters = {
 renderTodos(todos, filters);
 
 // Listen for text change
-searchTodo.addEventListener('input', function(e) {
+searchTodo.addEventListener('input', (e) => {
   filters.searchText = e.target.value;
   renderTodos(todos, filters);
 });
 
-newTodo.addEventListener('submit', function(e) {
+newTodo.addEventListener('submit', (e) => {
   e.preventDefault();
   
   const inputVal = e.target.elements.newTodo.value;
@@ -36,7 +36,7 @@ newTodo.addEventListener('submit', function(e) {
   e.target.elements.newTodo.value = '';
 });
 
-hideCompleted.addEventListener('change', function(e) {
+hideCompleted.addEventListener('change', (e) => {
   filters.hideCompleted = e.target.checked
   renderTodos(todos, filters)
 });

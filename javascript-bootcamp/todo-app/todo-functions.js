@@ -1,11 +1,6 @@
-const getSavedTodos = function () {
+const getSavedTodos = () => {
     const todosJSON = localStorage.getItem('todos')
-
-    if(todosJSON !== null) {
-        return JSON.parse(todosJSON)
-    } else {
-        return []
-    }
+    return todosJSON !== null ? JSON.parse(todosJSON) : []
 }
 
 const saveTodos = (todos) => {
@@ -36,8 +31,8 @@ const generateTodoDOM = (todo) => {
     return todoEl
 }
 
-const renderTodos = function (todos, filters) {
-    const filteredTodos = todos.filter(function (todo) {
+const renderTodos = (todos, filters) => {
+    const filteredTodos = todos.filter((todo) => {
         const searchTextMatch = todo.title.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
 
@@ -52,10 +47,8 @@ const renderTodos = function (todos, filters) {
     });
 }
 
-const toggleTodo = function(id) {
-    const todoIndex = todos.findIndex(function(todo) {
-        return todo.id === id
-    })
+const toggleTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
 
     if(todoIndex > -1) {
         todos[todoIndex].completed ? 
@@ -65,9 +58,7 @@ const toggleTodo = function(id) {
 }
 
 const removeTodo = function(id) {
-    const todoIndex = todos.findIndex(function(todo) {
-        return todo.id === id
-    })
+    const todoIndex = todos.findIndex((todo) =>todo.id === id)
 
     if(todoIndex > -1) {
         todos.splice(todoIndex, 1)
@@ -75,9 +66,7 @@ const removeTodo = function(id) {
 }
 
 const generateSummaryDOM = (filteredTodos) => {
-    const incompleteTodos = filteredTodos.filter(function(todo) {
-        return !todo.completed
-    });
+    const incompleteTodos = filteredTodos.filter((todo) => !todo.completed)
 
     const summary = document.createElement('h3');
     summary.textContent = `Você tem ${incompleteTodos.length} coisas pra fazer, amigão`;
@@ -87,7 +76,7 @@ const generateSummaryDOM = (filteredTodos) => {
 
 const handlers = {
     checkboxHandler: (checkbox, todo) => {
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', () => {
             toggleTodo(todo.id)
             saveTodos(todos)
             renderTodos(todos, filters)
@@ -95,7 +84,7 @@ const handlers = {
     },
 
     deleteButtonHandler: (deleteTodoButton, todo) => {
-        deleteTodoButton.addEventListener('click', function() {
+        deleteTodoButton.addEventListener('click', () => {
             removeTodo(todo.id)
             saveTodos(todos)
             renderTodos(todos, filters)
