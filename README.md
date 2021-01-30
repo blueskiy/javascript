@@ -1,2 +1,2 @@
 ## My Javascript Evolution
- -Take a look.
+- Take a look.
