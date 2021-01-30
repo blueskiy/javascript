@@ -6,7 +6,7 @@ const noteId = location.hash.substring(1)
 let notes = getSavedNotes()
 let note = notes.find((note) => note.id === noteId)
 
-if (note === undefined) {
+if (!note) {
     location.assign('/')
 }
 
@@ -40,7 +40,7 @@ window.addEventListener('storage', (event) => {
 
         note = notes.find((note) => note.id === noteId)
 
-        if (note === undefined) {
+        if (!note) {
             location.assign('/')
         }
 
