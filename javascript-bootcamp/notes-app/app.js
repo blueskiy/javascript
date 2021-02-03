@@ -1,3 +1,5 @@
+'use strict'
+
 const filterBy = document.querySelector('#filter-by')
 const searchNote = document.querySelector('#search-note')
 const createNoteButton = document.querySelector('#create-note')

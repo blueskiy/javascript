@@ -1,3 +1,5 @@
+'use strict'
+
 const newTodo = document.querySelector('#new-todo')
 const todosContainer = document.querySelector('#todos')
 const searchTodo = document.querySelector('#search-todo')

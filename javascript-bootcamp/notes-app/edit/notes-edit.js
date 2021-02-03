@@ -1,3 +1,5 @@
+'use strict'
+
 const removeNoteButton = document.querySelector('#remove-note')
 const dateElement = document.querySelector('#last-edited')
 const noteTitle = document.querySelector('#note-title')
