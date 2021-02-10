@@ -1,37 +1,53 @@
 'use strict'
 
-const getPuzzle = (wordCount, callback) => {
-    const request = new XMLHttpRequest()
+const getPuzzle = async (wordCount) => {
+    const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
 
-    request.addEventListener('readystatechange', (event) => {
-        if (event.target.readyState === 4 && event.target.status === 200) {
-            const data = JSON.parse(event.target.responseText)
-            callback(undefined, data.puzzle);
-        } else if(event.target.readyState === 4) {
-            callback('An error has taken place', undefined)
-        }
-    })
-
-    request.open('GET', `http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
-    request.send()
+    if(response.status === 200) {
+        const data = await response.json()
+        return data.puzzle
+    } else {
+        throw new Error('Unable to fetch the puzzle')
+    }
 }
 
-const getCountry = (countryCode, callback) => {
-    const request = new XMLHttpRequest()
+// const getCurrentCountry = async () => {
+//     const location = await getLocation()
+//     return getCountry(location.country)
+// }
 
-    request.addEventListener('readystatechange', (event) => {
+// const getLocation = async () => {
+//     const response = await fetch('http://ipinfo.io/json?token=074b1970efffbb')
 
-        if (event.target.readyState === 4 && event.target.status === 200) {
+//     if(response.status === 200) {
+//         return response.json()
+//     } else {
+//         throw new Error('Unable to fetch location')
+//     }
+// }
 
-            const data = JSON.parse(event.target.responseText)
-            const country = data.find(country => country.alpha2Code === countryCode)
-            callback(undefined, country)
+// const getCountry = async (countryCode) => {
+//     const response = await fetch('http://restcountries.eu/rest/v2/all')
 
-        } else if(event.target.readyState === 4) {
-            callback('Unable to fetch data', undefined)
-        }
-    })
+//     if(response.status === 200) {
+//         const data = await response.json()
+//         return data.find(country => country.alpha2Code === countryCode)
+//     } else {
+//         throw new Error('Unable to fetch data')
+//     }
+// }
 
-    request.open('GET', 'http://restcountries.eu/rest/v2/all')
-    request.send()
+// FUNCIONA MAS TÁ ESTRANHO
+const getCurrentCountry = async () => {
+    const locationResponse = await fetch('http://ipinfo.io/json?token=074b1970efffbb')
+
+    if(locationResponse.status === 200) {
+        const locationData = await locationResponse.json()
+        const countryResponse = await fetch('http://restcountries.eu/rest/v2/all')
+        const countryData = await countryResponse.json()
+
+        return countryData.find(country => country.alpha2Code === locationData.country)
+    } else {
+        throw new Error('Unable to fetch location')
+    }
 }

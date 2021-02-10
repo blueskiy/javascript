@@ -1,24 +1,31 @@
 'use strict'
 
-const game = new Hangman('car parts', 7)
+let game
 
-const hangmanRender = (game) => {
-    const hangmanEl = document.querySelector('#hangman')
-    const puzzleEl = document.createElement('span')
-    const remainingGuessesEl = document.createElement('span')
+const hangmanEl = document.querySelector('#hangman')
+const puzzleEl = document.createElement('span')
+const remainingGuessesEl = document.createElement('span')
+const resetButtonEl = document.createElement('button')
 
-    puzzleEl.className = 'puzzle'
-    remainingGuessesEl.className = 'remaining-guesses'
+puzzleEl.className = 'puzzle'
+resetButtonEl.textContent = 'Reset'
+resetButtonEl.setAttribute('id', 'reset')
+remainingGuessesEl.className = 'remaining-guesses'
 
-    hangmanEl.innerHTML = ''
-    hangmanEl.appendChild(puzzleEl)
-    hangmanEl.appendChild(remainingGuessesEl)
+hangmanEl.appendChild(puzzleEl)
+hangmanEl.appendChild(remainingGuessesEl)
+hangmanEl.appendChild(resetButtonEl)
 
+const render = () => {
     puzzleEl.textContent = game.puzzle
     remainingGuessesEl.textContent = game.statusMessage
 }
 
-hangmanRender(game)
+const newGame = async () => {
+    const puzzle = await getPuzzle('2')
+    game = new Hangman(puzzle, 7)
+    render()
+}
 
 window.addEventListener('keypress', (event) => {
     if(game.status !== 'playing') {
@@ -29,22 +36,21 @@ window.addEventListener('keypress', (event) => {
     
     game.makeGuess(guess)
     game.gameStatus()
-    hangmanRender(game)
-    console.log(game.status);
+    render()
 })
 
-getPuzzle('4', (error, puzzle) => {
-    if(error) {
-        console.log(`Error: ${error}`);
-    } else {
-        console.log(puzzle)
-    }
-})
+document.querySelector('#reset').addEventListener('click', newGame)
 
-getCountry('US', (error, country) => {
-    if(error) {
-        console.log(`Error: ${error}`);
-    } else {
-        console.log(country.name)
-    }
-})
+newGame()
+
+// getPuzzle('4').then((puzzle) => {
+//     console.log(`Puzzle, brother: ${puzzle}`)
+// }).catch((err) => {
+//     console.log(err);
+// })
+
+// getCurrentCountry().then((country) => {
+//     console.log(country.name);
+// }).catch((error) => {
+//     console.log(error);
+// })
