@@ -16,30 +16,26 @@ const saveNotes = (notes) => {
 
 // Generate the DOM structure for a note
 const generateNoteDOM =  (note) => {
-    const noteEl = document.createElement('div')
-    const textEl = document.createElement('a')
-    const button = document.createElement('button')
+    const noteEl = document.createElement('a')
+    const textEl = document.createElement('p')
+    const statusEl = document.createElement('p')
 
-    // Setup the remove note button
-    button.textContent = 'x'
-    noteEl.appendChild(button)
-    button.addEventListener('click', () => {
-        handlers.removeNote(note.id)
-        saveNotes(notes)
-        renderNotes(notes, filters)
-    })
+    noteEl.classList.add('list-item')
+    textEl.classList.add('list-item__title')
+    statusEl.classList.add('list-item__subtitle')
 
-    // Note title
     if (note.title.length > 0) {
         textEl.textContent = note.title
     } else {
         textEl.textContent = 'Nota não nomeada'
     }
 
-    textEl.setAttribute('href', `/edit#${note.id}`)
-
-    noteEl.className = 'note'
     noteEl.appendChild(textEl)
+
+    noteEl.setAttribute('href', `/edit#${note.id}`)
+
+    statusEl.textContent = generateLastEdited(note.updatedAt)
+    noteEl.appendChild(statusEl)
 
     return noteEl
 }
@@ -81,18 +77,26 @@ const sortNotes = (notes, sortBy) => {
 }
 
 const renderNotes = (notes, filters) => {
+    const notesEl = document.querySelector('#notes')
+
     notes = sortNotes(notes, filters.sortBy)
     const filteredNotes = notes.filter((note) => {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
     })
 
-    document.querySelector('#notes').innerHTML = ''
+    notesEl.innerHTML = ''
 
-    filteredNotes.forEach((note) => {
-        const noteEl = generateNoteDOM(note)
-
-        document.querySelector('#notes').appendChild(noteEl);
-    })
+    if(filteredNotes.length > 0) {
+        filteredNotes.forEach((note) => {
+            const noteEl = generateNoteDOM(note)
+            notesEl.appendChild(noteEl);
+        })
+    } else {
+        const emptyMessage = document.createElement('p')
+        emptyMessage.textContent = 'No notes to show'
+        emptyMessage.classList.add('empty-message')
+        notesEl.appendChild(emptyMessage);
+    }
 }
 
 const handlers = {

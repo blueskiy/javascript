@@ -3,12 +3,13 @@
 let game
 
 const hangmanEl = document.querySelector('#hangman')
-const puzzleEl = document.createElement('span')
-const remainingGuessesEl = document.createElement('span')
+const puzzleEl = document.createElement('div')
+const remainingGuessesEl = document.createElement('p')
 const resetButtonEl = document.createElement('button')
 
 puzzleEl.className = 'puzzle'
 resetButtonEl.textContent = 'Reset'
+resetButtonEl.className = 'button'
 resetButtonEl.setAttribute('id', 'reset')
 remainingGuessesEl.className = 'remaining-guesses'
 
@@ -17,8 +18,16 @@ hangmanEl.appendChild(remainingGuessesEl)
 hangmanEl.appendChild(resetButtonEl)
 
 const render = () => {
-    puzzleEl.textContent = game.puzzle
+    puzzleEl.innerHTML = ''
     remainingGuessesEl.textContent = game.statusMessage
+
+    const letters = game.puzzle.split('')
+
+    letters.forEach(letter => {
+        const letterElement = document.createElement('span')
+        letterElement.textContent = letter
+        puzzleEl.appendChild(letterElement)
+    });
 }
 
 const newGame = async () => {

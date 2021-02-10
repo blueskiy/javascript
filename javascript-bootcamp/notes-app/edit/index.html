@@ -4,29 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
 
-    <style>
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-        }
+    <title>Edit Note</title>
 
-        textarea {
-            resize: none;
-        }
-    </style>
 </head>
 
 <body>
-    <a href="/">Home</a>
-    <input type="text" id="note-title" placeholder="Note title">
-    <span id="last-edited"></span>
-    <textarea id="note-body" cols="30" rows="5" placeholder="Enter your note here"></textarea>
-    <button id="remove-note">Remove note</button>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Notes App</h1>
+            <h2 class="header__subtitle">Take notes and never forget</h2>
+        </div>
+    </header>
+    
+    <div class="actions">
+        <div class="actions__container actions__container--spaced">
+            <a href="/">Home</a>
+            <span id="last-edited"></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <input type="text" class="title-input" id="note-title" placeholder="Note title">
+        <textarea id="note-body" class="body-input" cols="30" rows="5" placeholder="Enter your note here"></textarea>
+        <button id="remove-note" class="button button--secondary">Remove note</button>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-    <script src="../notes-functions.js"></script>
+    <script src="../scripts/notes-functions.js"></script>
     <script src="notes-edit.js"></script>
 </body>
 
