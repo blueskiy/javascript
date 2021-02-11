@@ -93,7 +93,7 @@ const renderNotes = (notes, filters) => {
         })
     } else {
         const emptyMessage = document.createElement('p')
-        emptyMessage.textContent = 'No notes to show'
+        emptyMessage.textContent = 'Nenhuma nota encontrada'
         emptyMessage.classList.add('empty-message')
         notesEl.appendChild(emptyMessage);
     }

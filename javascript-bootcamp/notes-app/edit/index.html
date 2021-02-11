@@ -27,9 +27,12 @@
     </div>
 
     <div class="container">
-        <input type="text" class="title-input" id="note-title" placeholder="Note title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Note title'">
-        <textarea id="note-body" class="body-input" cols="30" rows="5" placeholder="Enter your note here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your note here'"></textarea>
-        <button id="remove-note" class="button button--secondary">Remove note</button>
+        <input type="text" class="title-input" id="note-title" placeholder="Título" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Título'">
+        <textarea id="note-body" class="body-input" cols="30" rows="5" placeholder="Digite sua nota aqui" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite sua nota aqui'"></textarea>
+        <div class="flex__container">
+            <button id="back-to-home" class="button">Concluir</button>
+            <button id="remove-note" class="button button--secondary">Remover nota</button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>

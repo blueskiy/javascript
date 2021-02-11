@@ -68,7 +68,7 @@ textarea {
 .actions {
     background-color: #F7F7F7;
     border-bottom: 1px solid #c2d7ee;
-    padding: .8rem
+    padding: .8rem 0;
 }
 
 .actions__container {
@@ -237,4 +237,9 @@ box-shadow:
 
 #last-edited {
     font-size: 1.4rem;
+}
+
+.flex__container {
+    display: flex;
+    justify-content: space-between;
 }

@@ -83,7 +83,7 @@ a {
     background-color: #353239;
     /* border-bottom: 1px solid #dedfe0; */
     /* color: #333333; */
-    padding: 1rem
+    padding: 1rem 0;
 }
 
 .actions__container {
@@ -93,6 +93,10 @@ a {
     margin: 0 auto;
     min-height: 3rem;
     padding: 0 1.6rem;
+}
+
+.actions__container .checkbox {
+    font-size: 15px;
 }
 
 .actions__container--spaced {
@@ -229,4 +233,8 @@ a {
 
 .empty-message {
     margin: 3.2rem 0;
+}
+
+#todos {
+    text-align: center;
 }

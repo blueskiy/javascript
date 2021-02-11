@@ -82,7 +82,7 @@ const generateSummaryDOM = (filteredTodos) => {
     if(incompleteTodos.length === 0) {
         const emptyMessage = document.createElement('p')
         emptyMessage.classList.add('empty-message')
-        emptyMessage.textContent = 'No to-dos to show'
+        emptyMessage.textContent = 'Nenhum to-do encontrado'
 
         return emptyMessage
     }
