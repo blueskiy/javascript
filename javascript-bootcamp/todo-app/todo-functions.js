@@ -15,12 +15,14 @@ const saveTodos = (todos) => {
 }
 
 const generateTodoDOM = (todo) => {
-    const todoEl = document.createElement('div')
+    const todoEl = document.createElement('label')
+    const containerEl = document.createElement('div')
     const checkbox = document.createElement('input')
     const textEl = document.createElement('span')
     const deleteTodoButton = document.createElement('button')
 
-    todoEl.className = 'todo';
+    todoEl.classList.add('list-item')
+    containerEl.classList.add('list-item__container')
 
     checkbox.setAttribute('type', 'checkbox')
     handlers.checkboxHandler(checkbox, todo)
@@ -28,11 +30,13 @@ const generateTodoDOM = (todo) => {
 
     textEl.textContent = todo.title
 
-    deleteTodoButton.textContent = 'x'
+    deleteTodoButton.textContent = 'Remove'
+    deleteTodoButton.classList.add('button', 'button--text')
     handlers.deleteButtonHandler(deleteTodoButton, todo)
 
-    todoEl.appendChild(checkbox)
-    todoEl.appendChild(textEl)
+    containerEl.appendChild(checkbox)
+    containerEl.appendChild(textEl)
+    todoEl.appendChild(containerEl)
     todoEl.appendChild(deleteTodoButton)
 
     return todoEl
@@ -75,8 +79,18 @@ const removeTodo = function(id) {
 const generateSummaryDOM = (filteredTodos) => {
     const incompleteTodos = filteredTodos.filter((todo) => !todo.completed)
 
+    if(incompleteTodos.length === 0) {
+        const emptyMessage = document.createElement('p')
+        emptyMessage.classList.add('empty-message')
+        emptyMessage.textContent = 'No to-dos to show'
+
+        return emptyMessage
+    }
+
     const summary = document.createElement('h3');
-    summary.textContent = `Você tem ${incompleteTodos.length} coisas pra fazer, amigão`;
+    summary.classList.add('list-title')
+    const isPlural = incompleteTodos.length === 1 ? 'coisa' : 'coisas'
+    summary.textContent = `Você tem ${incompleteTodos.length} ${isPlural} pra fazer, amigão`;
     
     return summary
 }

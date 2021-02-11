@@ -19,7 +19,7 @@
         </div>
     </header>
     
-    <div class="actions">
+    <div class="actions actions__container--bgc">
         <div class="actions__container actions__container--spaced">
             <a href="/">Home</a>
             <span id="last-edited"></span>
@@ -27,8 +27,8 @@
     </div>
 
     <div class="container">
-        <input type="text" class="title-input" id="note-title" placeholder="Note title">
-        <textarea id="note-body" class="body-input" cols="30" rows="5" placeholder="Enter your note here"></textarea>
+        <input type="text" class="title-input" id="note-title" placeholder="Note title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Note title'">
+        <textarea id="note-body" class="body-input" cols="30" rows="5" placeholder="Enter your note here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your note here'"></textarea>
         <button id="remove-note" class="button button--secondary">Remove note</button>
     </div>
 

@@ -23,11 +23,15 @@ searchTodo.addEventListener('input', (e) => {
 newTodo.addEventListener('submit', (e) => {
   e.preventDefault();
   
-  const inputVal = e.target.elements.newTodo.value;
+  const title = e.target.elements.newTodo.value.trim();
+
+  if(title === '') {
+    return
+  }
 
   const newTodo = {
     id: uuidv4(),
-    title: inputVal,
+    title,
     completed: false
   }
 

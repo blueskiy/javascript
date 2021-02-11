@@ -1,7 +1,7 @@
 'use strict'
 
 const getPuzzle = async (wordCount) => {
-    const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+    const response = await fetch(`//puzzle.mead.io/puzzle?wordCount=${wordCount}`)
 
     if(response.status === 200) {
         const data = await response.json()
@@ -39,11 +39,11 @@ const getPuzzle = async (wordCount) => {
 
 // FUNCIONA MAS TÁ ESTRANHO
 const getCurrentCountry = async () => {
-    const locationResponse = await fetch('http://ipinfo.io/json?token=074b1970efffbb')
+    const locationResponse = await fetch('//ipinfo.io/json?token=074b1970efffbb')
 
     if(locationResponse.status === 200) {
         const locationData = await locationResponse.json()
-        const countryResponse = await fetch('http://restcountries.eu/rest/v2/all')
+        const countryResponse = await fetch('//restcountries.eu/rest/v2/all')
         const countryData = await countryResponse.json()
 
         return countryData.find(country => country.alpha2Code === locationData.country)
