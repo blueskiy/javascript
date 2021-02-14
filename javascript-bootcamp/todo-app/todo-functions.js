@@ -30,7 +30,7 @@ const generateTodoDOM = (todo) => {
 
     textEl.textContent = todo.title
 
-    deleteTodoButton.textContent = 'Remove'
+    deleteTodoButton.textContent = 'Remover'
     deleteTodoButton.classList.add('button', 'button--text')
     handlers.deleteButtonHandler(deleteTodoButton, todo)
 
