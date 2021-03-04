@@ -1,0 +1,245 @@
+/* Base Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: #333333;
+  height: 100vh;
+  font-size: 1.6rem;
+  background: linear-gradient(to right bottom, rgb(216, 228, 243), rgb(199, 224, 255));
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+    color: #396684;
+}
+
+button:focus {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Container */
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+/* Header */
+
+.header {
+    color: white;
+    padding: 1.6rem 0;
+    background: #378bcf;
+    /* background: linear-gradient(to top, #7ac0face, #9fccf1ce); */
+}
+
+.header__title {
+    color: rgb(255, 255, 255);
+    font-size: 3.2rem;
+    margin-bottom: .4rem;
+}
+
+.header__subtitle {
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: rgb(255, 255, 255);
+}
+
+/* Actions Bar */
+
+.actions {
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #c2d7ee;
+    padding: .8rem 0;
+}
+
+.actions__container {
+    align-items: center;
+    display: flex;
+    max-width: 60rem;
+    margin: 0 auto;
+    min-height: 3rem;
+    padding: 0 1.6rem;
+}
+
+.actions__container--spaced {
+    justify-content: space-between
+}
+
+.actions__container--spaced a {
+    color: #479fe7;
+    transition: all 120ms ease;
+}
+
+.actions__container--spaced a:hover {
+    color: rgb(117, 179, 255)
+}
+
+.actions__container--bgc {
+    background-color: #cde1ff;
+}
+
+/* Form Inputs */
+
+.input {
+    border: none;
+    height: 3rem;
+    font-weight: 300;
+    font-size: 1.4rem;
+    border-radius: 4px;
+    margin-right: .8rem;
+    padding: .4rem .8rem;
+    border: 1px solid transparent;
+}
+
+.dropdown {
+    border: none;
+    height: 3rem;
+    font-weight: 300;
+    border-radius: 0;
+    font-size: 1.4rem;
+    margin-right: .8rem;
+    background: #ffffff96;
+}
+
+.dropdown:focus {
+    outline: none;
+}
+
+.button {
+    border: none;
+    color: white;
+    font-weight: 300;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    padding: 1.2rem 3rem;
+    background: #378bcf;
+    transition: background .3s ease;
+}
+
+.button:hover {
+    background: #4098e0;
+}
+
+.button--secondary {
+    border-bottom: none;
+    background: #6d7885a1;
+}
+
+.button--secondary:hover {
+    background: #8998aaa1;
+}
+
+/* Note editor */
+
+.title-input {
+    width: 100%;
+    display: block;
+    color: #333333;
+    font-weight: 300;
+    margin: 2.4rem 0;
+    font-size: 1.8rem;
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    border: 1px solid transparent;
+}
+
+.body-input {
+    width: 100%;
+    display: block;
+    padding: .8rem;
+    color: #333333;
+    margin: 2.4rem 0;
+    font-weight: 300;
+    font-size: 1.4rem;
+    min-height: 15rem;
+    border-radius: 4px;
+    font-family: inherit;
+    border: 1px solid transparent;
+}
+
+.input:focus,
+.body-input:focus,
+.title-input:focus {
+    outline: none;
+    border: 1px solid rgba(103, 182, 255, 0.87);
+}
+
+.input::placeholder,
+.body-input::placeholder,
+.title-input::placeholder {
+    color: rgba(124, 124, 124, 0.651);
+}
+
+/* Note List Item */
+
+.list-item {
+    display: block;
+    padding: 1.6rem;
+    margin: 1.6rem 0;
+    border-radius: 5px;
+    text-decoration: none;
+    background: #ffffffd3;
+    transition: all 200ms ease;
+}
+
+#notes:hover .list-item {
+    opacity: 0.5;
+}
+  
+#notes .list-item:hover {
+opacity: 1;
+cursor: pointer;
+transform: translateY(-3px);
+background: rgba(255, 255, 255, 0.767);
+
+box-shadow: 
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.list-item__title {
+    color: #333333;
+    font-size: 1.8rem;
+    margin-bottom: .4rem
+}
+
+.list-item__subtitle {
+    color: rgba(124, 124, 124, 0.651);
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.empty-message {
+    margin: 3.2rem 0;
+    text-align: center;
+}
+
+#last-edited {
+    font-size: 1.4rem;
+}
+
+.flex__container {
+    display: flex;
+    justify-content: space-between;
+}

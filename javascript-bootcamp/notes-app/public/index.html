@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <title>Notes</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Notes App</h1>
+            <h2 class="header__subtitle">Take notes and never forget</h2>
+        </div>
+    </header>
+
+    <div class="actions actions__container--bgc">
+        <div class="actions__container">
+            <input id="search-note" class="input" type="text" placeholder="Cadê?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cadê?'">
+
+            <select id="filter-by" class="dropdown" name="filters">
+                <option value="byEdited">Last Edited</option>
+                <option value="byCreated">Recently Created</option>
+                <option value="alphabetical">Alphabetically</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="notes"></div>
+        <button id="create-note" class="button">Criar Nota</button>
+    </div>
+
+    <script src="/scripts/index-bundle.js"></script>
+</body>
+
+</html>
