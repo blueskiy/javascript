@@ -20,6 +20,7 @@ class Hangman {
     }
     makeGuess(character) {
         character = character.toLowerCase()
+        const badGuess = !this.word.includes(character)
         const findCharacter = this.guessedLetters.find(letter => letter === character)
     
         if(findCharacter) {
@@ -27,8 +28,11 @@ class Hangman {
             return
         }
     
-        this.guessedLetters.push(character)
-        this.remainingGuesses--
+        this.guessedLetters = [...this.guessedLetters, character]
+
+        if(badGuess) {
+            this.remainingGuesses--
+        }
     }
     gameStatus() {
         const remainingGuesses = this.remainingGuesses

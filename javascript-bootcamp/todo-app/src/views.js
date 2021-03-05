@@ -2,7 +2,7 @@ import { getTodos, toggleTodo, removeTodo } from './todos'
 import { getFilters } from './filters'
 
 const todos = getTodos()
-const filters = getFilters()
+const { searchText, hideCompleted } = getFilters()
 
 const handlers = {
     checkboxHandler: (checkbox, todo) => {
@@ -51,8 +51,8 @@ const generateTodoDOM = (todo) => {
 export const renderTodos = () => {
     const todosContainer = document.querySelector('#todos')
     const filteredTodos = todos.filter((todo) => {
-        const searchTextMatch = todo.title.toLowerCase().includes(filters.searchText.toLowerCase())
-        const hideCompletedMatch = !filters.hideCompleted || !todo.completed
+        const searchTextMatch = todo.title.toLowerCase().includes(searchText.toLowerCase())
+        const hideCompletedMatch = !hideCompleted || !todo.completed
 
         return searchTextMatch && hideCompletedMatch
     });
